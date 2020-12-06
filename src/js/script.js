@@ -391,7 +391,6 @@
         products: [],
       };
       for(let product of thisCart.products){
-        product.getData();
         payload.products.push(product.getData());
       }
       const options = {
