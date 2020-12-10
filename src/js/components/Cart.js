@@ -1,6 +1,6 @@
-import {settings, select, templates} from './settings.js';
-import utils from './utils.js';
-import CartProduct from './components/CartProduct.js';
+import {settings, select, templates} from '../settings.js';
+import utils from '../utils.js';
+import CartProduct from './CartProduct.js';
 
 class Cart{
   constructor(element){
@@ -52,7 +52,8 @@ class Cart{
 
     const generatedHTML = templates.cartProduct(menuProduct);
     const generatedDOM = utils.createDOMFromHTML(generatedHTML);
-    thisCart.dom.productList.appendChild(generatedDOM);
+    const cartContainer = thisCart.dom.wrapper.querySelector(select.cart.productList);
+    cartContainer.appendChild(generatedDOM);
     thisCart.products.push(new CartProduct(menuProduct, generatedDOM));
     thisCart.update();
   }
