@@ -10,7 +10,7 @@ class CartProduct{
     thisCartProduct.price = menuProduct.price;
     thisCartProduct.singlePrice = menuProduct.singlePrice;
     thisCartProduct.amount = menuProduct.amount;
-    thisCartProduct.params = JSON.parse(JSON.stringify(menuProduct.params));
+    thisCartProduct.params = menuProduct.params;
 
     thisCartProduct.getElements(element);
     thisCartProduct.initAmountWidget();
