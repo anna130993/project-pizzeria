@@ -9,11 +9,12 @@ const app = {
     const bookingWidget = document.querySelector(select.containerOf.booking);
     thisApp.booking = new Booking(bookingWidget);
   },
-  initPages: function(){
+  initPages: function () {
     const thisApp = this;
 
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
+    thisApp.boxes = document.querySelectorAll(select.nav.boxes);
 
     const idFromHash = window.location.hash.replace('#/', '');
 
@@ -37,6 +38,16 @@ const app = {
         thisApp.activatePage(id);
 
         window.location.hash = '#/' + id;
+      });
+    }
+
+    for(let box of thisApp.boxes){
+      box.addEventListener('click', function(event){
+        const clickedElement = this;
+        event.preventDefault();
+        const id = clickedElement.getAttribute('href').replace('#', '');
+        thisApp.activatePage(id);
+        window.location.hash='#/' + id;
       });
     }
   },
