@@ -156,9 +156,24 @@ class Booking {
       alert('Find another!');
     }
   }
+
+  clearSelection(){
+    const thisBooking = this;
+
+    for(let table of thisBooking.dom.tables){
+      table.classList.remove(classNames.booking.tableSelected);
+    }
+    thisBooking.bookedTableId = null;
+  }
+
   sendBooking(){
     const thisBooking = this;
     const url = settings.db.url + '/' + settings.db.booking;
+
+    if(thisBooking.bookedTableId == null){
+      alert('Choose a table!');
+      return;
+    }
 
     const payload = {
       date: thisBooking.datePicker.value,
@@ -192,7 +207,9 @@ class Booking {
       .then(function(parsedResponse){
         console.log('parsedResponse', parsedResponse);
         thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
+        thisBooking.clearSelection();
         thisBooking.updateDOM();
+        alert('Booking successfull!');
       });
   }
   render(wrapper){
