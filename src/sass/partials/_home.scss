@@ -8,45 +8,33 @@
   width: 100%;
 }
 
-/* Order - Booking - Hours */
+/* Upper Boxes */
 
 .home-item {
   text-align: center;
   padding: 25px;
   transition: $transition;
 
-  .btn p {
-    text-decoration: none;
-  }
-
   .home-item-title {
     color: $color-light;
     font-size: 25px;
     font-weight: bold;
-    font-family: $font-header;
+    font-family: $font-text;
     margin: 10px;
     transition: $transition;
-
   }
 
   p {
     color: $color-light;
     margin: 10px;
-    opacity: 0;
     width: 100%;
-    transition: $transition;
     font-size: 13px;
+    font-weight: bold;
   }
 }
 
 .home-item:hover a {
   transform: translateY(-20px);
-  transition: $transition;
-}
-
-.home-item:hover p {
-  transform: translateY(-70px);
-  opacity: 1;
   transition: $transition;
 }
 
@@ -164,7 +152,7 @@
   }
 
   .gallery-image:hover {
-    filter: brightness(0.6);
+    filter: brightness(0.7);
 
     .gallery-icon {
       opacity: 1;
